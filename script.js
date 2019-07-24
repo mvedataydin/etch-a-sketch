@@ -1,4 +1,4 @@
-let size = 16;
+let size = 64;
 var mainDiv = document.querySelector('.container');
 
 createGrid(size);
@@ -12,10 +12,83 @@ function createGrid(size){
             const square = document.createElement('div');
             square.setAttribute('id', 'innerSquare');
             square.classList.add('square');
-            square.style.width = `${600 / size}px`;
-            square.style.height = `${600 / size}px`;
-            gridRow.appendChild(square);
+            square.style.width = `${500 / size}px`;
+            square.style.height = `${500 / size}px`;
+            gridRow.appendChild(square); 
         }
     }
+}
 
+function colorBlack(){
+    const x = document.querySelectorAll('.square');
+    x.forEach((square) => {
+    square.addEventListener('mouseover', function(e){
+        square.style.setProperty('background-color','black');
+        square.style.setProperty('opacity', .9);
+        });
+    });
+}
+
+function colorShade(){
+    const y = document.querySelectorAll('.square');
+    y.forEach((square) => {
+    square.addEventListener('mouseover', function(e){
+        square.style.setProperty('background-color','black');
+        square.style.setProperty('opacity', .09);
+        });
+    });
+}
+
+function colorRandom(){
+    const z = document.querySelectorAll('.square');
+    z.forEach((square) => {
+        square.addEventListener('mouseover', function(e){
+            const rand1 = Math.floor(Math.random() * 255);
+            const rand2 = Math.floor(Math.random() * 255);
+            const rand3 = Math.floor(Math.random() * 255);
+            square.style.setProperty('background-color','rgb(' + rand1 + ', ' + rand2 + ', ' + rand3 + ')');
+            square.style.setProperty('opacity', .9);
+            });
+    });
+}
+
+// can be used to add plain color classes
+//function colorChange(color){
+//    const x = document.querySelectorAll('.square');
+//        x.forEach((square) => {
+//          square.addEventListener('mouseover', function(e){
+//          square.classList.remove('shade','rainbow','black');
+//          square.classList.add(color);
+//        });
+//    });
+//}
+
+function gridSize() {
+    resetGrid();
+    let size = parseInt(prompt("Enter preferred grid size (64 for 64x64 square grid for example)","0"));
+    if (size < 0) {
+        size = prompt('Enter a number greater than zero.','0');
+    }
+    createGrid(size);
+    colorBlack();
+  }
+
+function clearDisplay() {
+    let resize = size;
+    clean();
+    createGrid(resize);
+  }
+
+  function resetGrid() {
+    var myNode = document.getElementById("container");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+}
+
+function clean() {
+    squares = container.getElementsByTagName("div");
+    for (let i = 0; i < squares.length; i++) {
+      squares[i].style.backgroundColor = "";
+    }
 }
