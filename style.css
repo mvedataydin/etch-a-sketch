@@ -1,16 +1,15 @@
-body{
+body {
     text-align: center;
-    background-color:rgb(212, 140, 209);
+    background-color: rgb(212, 140, 209);
     font-family: Impact, Charcoal, sans-serif;
     color: rgb(240, 238, 155);
-}
-.button-container{
+  }
+  .button-container {
     margin: auto;
     margin-top: 10px;
     width: 400px;
-
-}
-button{
+  }
+  button {
     margin-left: 5px;
     font-size: 10px;
     color: rgb(88, 88, 88);
@@ -19,8 +18,8 @@ button{
     border: none;
     border-radius: 4px;
     text-align: center;
-} 
-.container{
+  }
+  .container {
     margin: auto;
     margin-top: 15px;
     width: 500px;
@@ -29,11 +28,10 @@ button{
     border-radius: 10px;
     font-size: 0;
     background-color: white;
-}
-
-.square{
+  }
+  
+  .square {
     display: inline-block;
     box-sizing: border-box;
-}
-
-
+  }
+  
