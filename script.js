@@ -2,6 +2,7 @@ let size = 64;
 var mainDiv = document.querySelector('.container');
 
 createGrid(size);
+colorBlack();
 
 function createGrid(size){
     for(i = 0; i < size; i++){
