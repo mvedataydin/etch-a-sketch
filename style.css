@@ -1,0 +1,16 @@
+
+.container{
+    margin: auto;
+    margin-top: 50px;
+    width: 600px;
+    height: 600px;
+    border: 10px solid #8F8EBF;
+    font-size: 0;
+}
+
+.square{
+    display: inline-block;
+    border: 1px solid #8F8EBF;
+    box-sizing: border-box;
+}
+
