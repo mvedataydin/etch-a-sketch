@@ -27,7 +27,6 @@ function colorBlack() {
   const x = document.querySelectorAll(".square");
   x.forEach(square => {
     square.addEventListener("mouseover", function(e) {
-      console.log("black");
       square.style.setProperty("background-color", "black");
       square.style.setProperty("opacity", 1);
     });
@@ -39,7 +38,6 @@ function colorRandom() {
   const z = document.querySelectorAll(".square");
   z.forEach(square => {
     square.addEventListener("mouseover", function(e) {
-      console.log("random");
       const rand1 = Math.floor(Math.random() * 255);
       const rand2 = Math.floor(Math.random() * 255);
       const rand3 = Math.floor(Math.random() * 255);
@@ -52,16 +50,26 @@ function colorRandom() {
   });
 }
 
-// can be used to add plain color classes
-//function colorChange(color){
-//    const x = document.querySelectorAll('.square');
-//        x.forEach((square) => {
-//          square.addEventListener('mouseover', function(e){
-//          square.classList.remove('shade','rainbow','black');
-//          square.classList.add(color);
-//        });
-//    });
-//}
+function colorShade() {
+  resetEventListener();
+  const y = document.querySelectorAll(".square");
+  y.forEach(square => {
+    square.addEventListener("mouseover", function(e) {
+      square.style.setProperty("background-color", "white");
+      shader(square);
+    });
+  });
+}
+
+function shader(square) {
+  if (square.style.filter == "") {
+    square.style.filter = "brightness(90%)";
+  } else if (square.style.filter != "brightness(0%)") {
+    current_brightness = square.style.filter.slice(-4, -2);
+    current_brightness -= 10;
+    square.style.filter = "brightness(" + current_brightness + "%)";
+  }
+}
 
 function gridSize() {
   resetGrid();
@@ -81,6 +89,7 @@ function gridSize() {
 function clearDisplay() {
   let resize = size;
   clean();
+  resetEventListener();
   createGrid(resize);
 }
 
