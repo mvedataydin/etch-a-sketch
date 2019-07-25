@@ -1,5 +1,7 @@
 let size = 64;
 var mainDiv = document.querySelector(".container");
+let opacityNew;
+var currentOpacity;
 
 createGrid(size);
 colorBlack();
@@ -21,29 +23,23 @@ function createGrid(size) {
 }
 
 function colorBlack() {
+  resetEventListener();
   const x = document.querySelectorAll(".square");
   x.forEach(square => {
     square.addEventListener("mouseover", function(e) {
+      console.log("black");
       square.style.setProperty("background-color", "black");
-      square.style.setProperty("opacity", 0.9);
-    });
-  });
-}
-
-function colorShade() {
-  const y = document.querySelectorAll(".square");
-  y.forEach(square => {
-    square.addEventListener("mouseover", function(e) {
-      square.style.setProperty("background-color", "black");
-      square.style.setProperty("opacity", 0.09);
+      square.style.setProperty("opacity", 1);
     });
   });
 }
 
 function colorRandom() {
+  resetEventListener();
   const z = document.querySelectorAll(".square");
   z.forEach(square => {
     square.addEventListener("mouseover", function(e) {
+      console.log("random");
       const rand1 = Math.floor(Math.random() * 255);
       const rand2 = Math.floor(Math.random() * 255);
       const rand3 = Math.floor(Math.random() * 255);
@@ -51,7 +47,7 @@ function colorRandom() {
         "background-color",
         "rgb(" + rand1 + ", " + rand2 + ", " + rand3 + ")"
       );
-      square.style.setProperty("opacity", 0.9);
+      square.style.setProperty("opacity", 1);
     });
   });
 }
@@ -100,4 +96,12 @@ function clean() {
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = "";
   }
+}
+
+function resetEventListener() {
+  var el = document.querySelectorAll(".square");
+  el.forEach(square => {
+    elClone = square.cloneNode(true);
+    square.parentNode.replaceChild(elClone, square);
+  });
 }
