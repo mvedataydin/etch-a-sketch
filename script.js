@@ -87,10 +87,8 @@ function gridSize() {
 }
 
 function clearDisplay() {
-  let resize = size;
   clean();
   resetEventListener();
-  createGrid(resize);
 }
 
 function resetGrid() {
@@ -104,6 +102,8 @@ function clean() {
   squares = container.getElementsByTagName("div");
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = "";
+    squares[i].style.filter = "";
+    
   }
 }
 
