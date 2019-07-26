@@ -93,15 +93,12 @@ function clearDisplay() {
   resetEventListener();
   if(colorMemory === "black"){
     colorBlack();
-    console.log(colorMemory);
   }
   if(colorMemory === "shade"){
     colorShade();
-    console.log(colorMemory);
   }
   if(colorMemory === "random"){
     colorRandom();
-    console.log(colorMemory);
   }
 }
 
