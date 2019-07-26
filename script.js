@@ -46,7 +46,7 @@ function colorRandom() {
         "background-color",
         "rgb(" + rand1 + ", " + rand2 + ", " + rand3 + ")"
       );
-      square.style.setProperty("opacity", 1);
+      square.style.filter = "";
     });
   });
 }
