@@ -1,7 +1,6 @@
 let size = 64;
 var mainDiv = document.querySelector(".container");
-let opacityNew;
-var currentOpacity;
+let colorMemory = "";
 
 createGrid(size);
 colorBlack();
@@ -23,6 +22,7 @@ function createGrid(size) {
 }
 
 function colorBlack() {
+  colorMemory = "black";
   resetEventListener();
   const x = document.querySelectorAll(".square");
   x.forEach(square => {
@@ -34,6 +34,7 @@ function colorBlack() {
 }
 
 function colorRandom() {
+  colorMemory = "random";
   resetEventListener();
   const z = document.querySelectorAll(".square");
   z.forEach(square => {
@@ -51,6 +52,7 @@ function colorRandom() {
 }
 
 function colorShade() {
+  colorMemory = "shade";
   resetEventListener();
   const y = document.querySelectorAll(".square");
   y.forEach(square => {
@@ -89,6 +91,18 @@ function gridSize() {
 function clearDisplay() {
   clean();
   resetEventListener();
+  if(colorMemory === "black"){
+    colorBlack();
+    console.log(colorMemory);
+  }
+  if(colorMemory === "shade"){
+    colorShade();
+    console.log(colorMemory);
+  }
+  if(colorMemory === "random"){
+    colorRandom();
+    console.log(colorMemory);
+  }
 }
 
 function resetGrid() {
