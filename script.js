@@ -1,6 +1,6 @@
-let size = 64;
+var size = 64;
 var mainDiv = document.querySelector(".container");
-let colorMemory = "";
+var colorMemory = "";
 
 createGrid(size);
 colorBlack();
@@ -74,16 +74,19 @@ function shader(square) {
 }
 
 function gridSize() {
-  resetGrid();
-  let size = parseInt(
+  size = parseInt(
     prompt(
       "Enter preferred grid size (64 for 64x64 square grid for example)",
       "0"
-    )
-  );
-  if (size < 0) {
+    ));
+    console.log(size);
+  if (size <= 0) {
     size = prompt("Enter a number greater than zero.", "0");
   }
+  if (isNaN(size)){
+    return;
+  }
+  resetGrid();
   createGrid(size);
   colorBlack();
 }
